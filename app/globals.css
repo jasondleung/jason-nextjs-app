@@ -1,26 +1,66 @@
-@import "tailwindcss";
+html,
+body {
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+/* Light Mode */
+body {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #111;
+  color: #f5f5f5;
+}
+
+/* Floating Toggle Button */
+/* Floating Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+  transition: all 0.25s ease;
+
+  z-index: 9999;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+/* Dark mode button */
+body.dark .theme-toggle {
+  background: white;
+  color: black;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --card-bg: white;
+  --text-color: #111;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+body.dark {
+  --card-bg: #1e1e1e;
+  --text-color: #f5f5f5;
 }
